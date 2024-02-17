@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class Triangle {
     private final int side1;
@@ -14,7 +13,7 @@ public class Triangle {
         this.side3 = side3;
 
         if (!isTriangle()) {
-            throw new RuntimeException("Not valid sides of Triangle");
+            throw new RuntimeException("plain triangle could not be created");
         }
     }
 
@@ -23,6 +22,14 @@ public class Triangle {
                 sides.get(0),
                 sides.get(1),
                 sides.get(2)
+        );
+    }
+
+    Triangle(Integer[] sides){
+        this(
+                sides[0],
+                sides[1],
+                sides[2]
         );
     }
 

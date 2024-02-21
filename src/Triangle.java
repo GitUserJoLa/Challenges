@@ -46,16 +46,15 @@ public class Triangle {
         String line = bufferedReader.readLine();
         //split input string
         String[] sidesStr = line.split(" ");
-        //convert collection to Stream
+        //convert Array sidesStr to Stream, using stateless function declared in map()
         List<Integer> sides = Arrays.stream(sidesStr).map(
-                //parse each element to Int and add to List
+                //parse each element to Int
                 (side) -> Integer.parseInt(side)
+                //and add all results to List
         ).toList();
 
         Triangle triangle = new Triangle(sides);
         System.out.println("Triangle has been created successfully");
     }
 }
-
-//What are the impacts of "final" keyword.
 //On class level and on attributes level

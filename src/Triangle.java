@@ -15,6 +15,7 @@ public class Triangle {
         if (!isTriangle()) {
             throw new RuntimeException("plain triangle could not be created");
         }
+        System.out.println("Triangle has been created successfully");
     }
 
     Triangle(List<Integer> sides) {
@@ -54,7 +55,6 @@ public class Triangle {
         ).toList();
 
         Triangle triangle = new Triangle(sides);
-        System.out.println("Triangle has been created successfully");
     }
 }
 //On class level and on attributes level

@@ -37,14 +37,27 @@ public class PrimeNumberCalc {
         for (int i = 2; i <= limit / 2; i++) {
             //2 is the first prime
             //if  i > limit/2 i can't have any multiple within the limit
+            //(e.g. 51 can't have a multiple within a limit of 100)
 
-            //check if i exists in the list
+            //if i doesn't exist in the set there's no need to compute its multiples
+            if (!primesToN.contains(i)) {
+                continue;
+            }
+            //compute all multiples of i up to limit
+            Set<Integer> multiples = multiplesOfN(i, limit);
+            primesToN.removeAll(multiples);
+
+            /*
+            //check if i exists in the set
             if (primesToN.contains(i)) {
                 //if i is still in the set, compute all multiples of i up to limit
                 Set<Integer> multiples = multiplesOfN(i, limit);
                 primesToN.removeAll(multiples);
             }
+             */
         }
+
+
         System.out.println("primes to " + limit + ": " + primesToN +
                 "\nfound " + primesToN.size() + " prime numbers up to " + limit);
 

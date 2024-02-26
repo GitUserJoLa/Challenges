@@ -24,9 +24,9 @@ public class PrimeNumberCalc {
         return multiples;
     }
 
-    public static @NotNull List<Integer> sieveOfEratosthenes(Integer limit) {
+    public static @NotNull Set<Integer> sieveOfEratosthenes(Integer limit) {
         //O(n^2)
-        List<Integer> primesToN = new ArrayList<>();
+        @NotNull Set<Integer> primesToN = new HashSet<>();
 
         for (int i = 2; i <= limit; i++) {
             //create a list containing all numbers up to limit

@@ -29,7 +29,7 @@ public class PrimeNumberCalc {
         @NotNull Set<Integer> primesToN = new HashSet<>();
 
         for (int i = 2; i <= limit; i++) {
-            //create a list containing all numbers up to limit
+            //create a set containing all numbers up to limit
             //all entries are potential prime at the beginning
             primesToN.add(i);
         }
@@ -40,7 +40,7 @@ public class PrimeNumberCalc {
 
             //check if i exists in the list
             if (primesToN.contains(i)) {
-                //if i is still in the list, compute all multiples of i up to limit
+                //if i is still in the set, compute all multiples of i up to limit
                 Set<Integer> multiples = multiplesOfN(i, limit);
                 primesToN.removeAll(multiples);
             }

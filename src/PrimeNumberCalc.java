@@ -45,7 +45,8 @@ public class PrimeNumberCalc {
                 primesToN.removeAll(multiples);
             }
         }
-        System.out.println("primes to " + limit + ": " + primesToN);
+        System.out.println("primes to " + limit + ": " + primesToN +
+                "\nfound " + primesToN.size() + " prime numbers up to " + limit);
 
         return primesToN;
         /*

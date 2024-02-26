@@ -10,6 +10,7 @@ public class TestPrimeNumberCalc {
         }
         System.out.println();
     }
+
     private static void testMultiplesOfN() {
         Set<Integer> setMultiples = PrimeNumberCalc.multiplesOfN(2, 10);
         System.out.println("multiples of 2 up to 10: (" + setMultiples.size() + " in total) " + setMultiples);
@@ -28,13 +29,20 @@ public class TestPrimeNumberCalc {
 
         System.out.println();
     }
+
     public static void main(String[] args) {
         testIsPrime();
         testMultiplesOfN();
 
+        PrimeNumberCalc.sieveOfEratosthenes(-10);
+        PrimeNumberCalc.sieveOfEratosthenes(0);
+        PrimeNumberCalc.sieveOfEratosthenes(1);
+        PrimeNumberCalc.sieveOfEratosthenes(2);
         PrimeNumberCalc.sieveOfEratosthenes(10);
         PrimeNumberCalc.sieveOfEratosthenes(30);
         PrimeNumberCalc.sieveOfEratosthenes(100);
         PrimeNumberCalc.sieveOfEratosthenes(10000);
+        //algorithm slows down significantly
+        PrimeNumberCalc.sieveOfEratosthenes(100000);
     }
 }

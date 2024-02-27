@@ -46,15 +46,6 @@ public class PrimeNumberCalc {
             //compute all multiples of i up to limit
             Set<Integer> multiples = multiplesOfN(i, limit);
             primesToN.removeAll(multiples);
-
-            /*
-            //check if i exists in the set
-            if (primesToN.contains(i)) {
-                //if i is still in the set, compute all multiples of i up to limit
-                Set<Integer> multiples = multiplesOfN(i, limit);
-                primesToN.removeAll(multiples);
-            }
-             */
         }
 
 

@@ -4,8 +4,8 @@ import java.util.Arrays;
 public class SmallestPrimeNumberMissing {
 
     private static int findPrimeUsingBooleanMarkerArray(Integer[] unsortedArr) {
-        //size of marker array is arbitrarily. assume unsorted array contains a maximum of 99 prime numbers
-        boolean[] markerArr = new boolean[100];
+        //size of marker array is arbitrarily. assume unsorted array contains a maximum of 999 prime numbers
+        boolean[] markerArr = new boolean[1000];
 
         for (Integer element : unsortedArr) {
             if(element > 0 && PrimeNumberCalc.isPrime(element))

@@ -31,46 +31,48 @@ public class TrilingualDemocracy {
         //each letter in speakers string symbolizes a language spoken
         //save each letter to a separate field
         //and compare the fields for equality
-        String[] arrSpeakersSplit = speakers.split("");
+        String[] letters = speakers.split("");
 
         //if(all letters equal each other) return first letter
-        if (arrSpeakersSplit[0].equals(arrSpeakersSplit[1]) &&
-                arrSpeakersSplit[2].equals(arrSpeakersSplit[1]))
-            return arrSpeakersSplit[0];
+        if (letters[0].equals(letters[1]) &&
+                letters[2].equals(letters[1]))
+            return letters[0];
 
-
-        //if(no letters equal each other) remove letters from list of all possibilities
-        //and return remaining letter
-        if (!(arrSpeakersSplit[0].equals(arrSpeakersSplit[1])) &&
-                !(arrSpeakersSplit[0].equals(arrSpeakersSplit[2])) &&
-                !(arrSpeakersSplit[1].equals(arrSpeakersSplit[2]))
+        //if(no letters equal each other) return letter which isn't in the array
+        if (!(letters[0].equals(letters[1])) &&
+                !(letters[0].equals(letters[2])) &&
+                !(letters[1].equals(letters[2]))
         ) {
+            //languageList contains all possible letters
             List<String> languageList = new ArrayList<>(List.of("D", "F", "I", "R"));
-            languageList.removeAll(Arrays.asList(arrSpeakersSplit));
-            return languageList.toString();
+
+            //remove all letters from languageList which appear in letter array
+            //(removeAll() takes collections as arguments -> turn array into collection)
+            languageList.removeAll(Arrays.asList(letters));
+
+            //return languageList.toString(); //has cosmetic output issues
+            //turn list into array again to resolve cosmetic output issues
+            String[] arrLanguageLeft = languageList.toArray(String[]::new);
+            return arrLanguageLeft[0];
         }
 
         //if(only two letters equal each other) return non-equal letter
-        if((arrSpeakersSplit[0].equals(arrSpeakersSplit[1])) && !(arrSpeakersSplit[0].equals(arrSpeakersSplit[2])))
-            return arrSpeakersSplit[2];
-        if((arrSpeakersSplit[0].equals(arrSpeakersSplit[2])) && !(arrSpeakersSplit[0].equals(arrSpeakersSplit[1])))
-            return arrSpeakersSplit[1];
-        if((arrSpeakersSplit[1].equals(arrSpeakersSplit[2])) && !(arrSpeakersSplit[1].equals(arrSpeakersSplit[0])))
-            return arrSpeakersSplit[0];
+        if ((letters[0].equals(letters[1])) && !(letters[0].equals(letters[2])))
+            return letters[2];
+        if ((letters[0].equals(letters[2])) && !(letters[0].equals(letters[1])))
+            return letters[1];
+        if ((letters[1].equals(letters[2])) && !(letters[1].equals(letters[0])))
+            return letters[0];
 
-        return "reached end of method";
+        return "could not choose language";
     }
 
     public static void main(String[] args) {
         TrilingualDemocracy tD = new TrilingualDemocracy();
-        System.out.println(tD.chooseLanguage("DDD"));
-        System.out.println(tD.chooseLanguage("DFR"));
-        System.out.println(tD.chooseLanguage("IIR"));
-        System.out.println(tD.chooseLanguage("FDF"));
-        System.out.println(tD.chooseLanguage("FRR"));
-
-
-
+        System.out.println("DDD: " + tD.chooseLanguage("DDD"));
+        System.out.println("DFR: " + tD.chooseLanguage("DFR"));
+        System.out.println("IIR: " + tD.chooseLanguage("IIR"));
+        System.out.println("FDF: " + tD.chooseLanguage("FDF"));
+        System.out.println("FRR: " + tD.chooseLanguage("FRR"));
     }
-
 }

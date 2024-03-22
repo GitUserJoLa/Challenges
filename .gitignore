@@ -3,5 +3,12 @@
 out/*
 BTreeNode.java
 MyBinaryTree.java
-
+OddOrEvenSolution.java
+PrimeNumberCalc.java
+SmallestPositiveNumberMissing.java
+SmallestPrimeNumberMissing.java
+SumWithoutHighestAndLowestNumber.java
+TestPrimeNumberCalc.java
+Triangle.java
+TrilingualDemocracy.java
 

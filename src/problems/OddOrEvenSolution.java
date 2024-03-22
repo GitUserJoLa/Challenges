@@ -1,4 +1,4 @@
-
+package problems;
 /*
 Question: Tell if an int is an odd or even number
 234 --> Even

@@ -1,3 +1,5 @@
+package primenumbers;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -13,7 +15,7 @@ public class SmallestPrimeNumberMissing {
 
         }
         for(int i = 2; i < markerArr.length; i++){
-            //boolean isPrimeNumber = PrimeNumberCalc.isPrime(i);
+            //boolean isPrimeNumber = primenumbers.PrimeNumberCalc.isPrime(i);
             if(PrimeNumberCalc.isPrime(i) && !markerArr[i])
                 //return first prime index with 'false' value
                 return i;

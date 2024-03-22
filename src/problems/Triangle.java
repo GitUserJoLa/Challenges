@@ -1,3 +1,5 @@
+package problems;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +17,7 @@ public class Triangle {
         if (!isTriangle()) {
             throw new RuntimeException("plain triangle could not be created");
         }
-        System.out.println("Triangle has been created successfully");
+        System.out.println("problems.Triangle has been created successfully");
     }
 
     Triangle(List<Integer> sides) {

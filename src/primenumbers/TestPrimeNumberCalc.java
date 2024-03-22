@@ -1,3 +1,5 @@
+package primenumbers;
+
 import java.util.Set;
 
 public class TestPrimeNumberCalc {

@@ -1,5 +1,7 @@
+package binarytrees;
+
 /*
-You are given a class called TreeNode.
+You are given a class called binarytrees.TreeNode.
 Implement the method isPerfect() which determines if a given tree denoted by its root node is perfect.
 https://www.codewars.com/kata/57dd79bff6df9b103b00010f
  Credits to janitormeir
@@ -10,10 +12,10 @@ public class TreeNode {
     int value;
 
     /*
-    TreeNode(){}
+    binarytrees.TreeNode(){}
      */
     /*
-    TreeNode(int value, TreeNode left, TreeNode right) {
+    binarytrees.TreeNode(int value, binarytrees.TreeNode left, binarytrees.TreeNode right) {
         this.value = value;
         this.left = left;
         this.right = right;
@@ -22,7 +24,7 @@ public class TreeNode {
      */
 
     /*
-    TreeNode(int value) {
+    binarytrees.TreeNode(int value) {
         this(value, null, null);
     }
 

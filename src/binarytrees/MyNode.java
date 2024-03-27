@@ -1,19 +1,56 @@
 package binarytrees;
 
-public class MyNode {
+class MyNode extends MyBinaryTree {
     private MyNode leftChild;
     private MyNode rightChild;
     private int value;
 
-    public MyNode getLeftChild() {
+    MyNode() {
+        this(0, null, null);
+    }
+
+    MyNode(int value) {
+        this(value, null, null);
+    }
+
+    MyNode(int value, MyNode leftChild, MyNode rightChild) {
+        this.value = value;
+        this.leftChild = leftChild;
+        this.rightChild = rightChild;
+    }
+
+    MyNode getLeftChild() {
         return leftChild;
     }
 
-    public MyNode getRightChild() {
+    void setLeftChild(int value) {
+        this.leftChild = new MyNode(value);
+    }
+
+    MyNode getRightChild() {
         return rightChild;
     }
 
-    public int getValue() {
+    void setRightChild(int value) {
+        this.rightChild = new MyNode(value);
+    }
+
+    int getValue() {
         return value;
+    }
+
+    @Override
+    MyNode add(int value) {
+        return null;
+    }
+
+    @Override
+    void deleteSingleNode(int value) {
+
+    }
+
+    @Override
+    void deleteSubTree(int value) {
+
     }
 }

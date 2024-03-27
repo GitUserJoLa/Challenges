@@ -1,6 +1,10 @@
 package binarytrees;
 
-public class MyBinaryTree {
+abstract class MyBinaryTree {
     MyNode root;
-    int value;
+    //int value;
+
+    abstract MyNode add(int value);
+    abstract void deleteSingleNode(int value);
+    abstract void deleteSubTree(int value);
 }

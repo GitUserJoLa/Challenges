@@ -1,10 +1,18 @@
 package binarytrees;
 
-abstract class MyBinaryTree {
+class MyBinaryTree {
     MyNode root;
-    //int value;
+    int height;
 
-    abstract MyNode add(int value);
-    abstract void deleteSingleNode(int value);
-    abstract void deleteSubTree(int value);
+    MyNode add(int value) {
+        return null;
+    }
+
+    void deleteSingleNode(int value) {}
+
+    void deleteSubTree(int value){}
+
+    MyNode search(int value) {
+        return null;
+    }
 }

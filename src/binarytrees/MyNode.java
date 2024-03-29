@@ -13,6 +13,16 @@ class MyNode extends MyBinaryTree {
         this(value, null, null);
     }
 
+    MyNode(int value, int leftChildValue, int rightChildValue){
+        this.value = value;
+        this.leftChild = new MyNode(leftChildValue);
+        this.rightChild = new MyNode(rightChildValue);
+
+        //usage of those here will cause a stack overflow
+        //setLeftChild(leftChildValue);
+        //setRightChild(rightChildValue);
+    }
+
     MyNode(int value, MyNode leftChild, MyNode rightChild) {
         this.value = value;
         this.leftChild = leftChild;
@@ -39,18 +49,4 @@ class MyNode extends MyBinaryTree {
         return value;
     }
 
-    @Override
-    MyNode add(int value) {
-        return null;
-    }
-
-    @Override
-    void deleteSingleNode(int value) {
-
-    }
-
-    @Override
-    void deleteSubTree(int value) {
-
-    }
 }

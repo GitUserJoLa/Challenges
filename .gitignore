@@ -3,4 +3,4 @@
 out/*
 BTreeNode.java
 TreeNode.java
-TestMyNode.java
+TestBinaryTree.java

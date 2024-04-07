@@ -1,63 +1,49 @@
 package binarytrees;
 
-public class BinaryTree {
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
+public class BinaryTree {
     private Node root;
 
     Node getRoot() {
-        //Objects.requireNonNull(this.root, "'root' must not be null");
         return root;
     }
 
     Node binarySearch(int value) {
-        if (value == root.getValue())
-            return root;
         return binarySearch(value, root);
     }
 
-    private Node binarySearch(int value, Node pointernode) {
-        if (value == pointernode.getValue())
-            return pointernode;
-        else if (value < pointernode.getValue())
-            return binarySearch(value, pointernode.getLeftChild());
-        else return binarySearch(value, pointernode.getRightChild());
+    private @Nullable Node binarySearch(int value, Node pointerNode) {
+
+        if (pointerNode == null) {
+            System.out.println("Could not find Node with value of " + value);
+            return null;
+        }
+
+        if (value == pointerNode.getValue())
+            return pointerNode;
+        else if (value < pointerNode.getValue())
+            return binarySearch(value, pointerNode.getLeftChild());
+        else return binarySearch(value, pointerNode.getRightChild());
     }
 
     Node insert(int value) {
-        if (root != null)
-            return insert(value, this.root);
-        this.root = new Node(value);
+        root = insert(value, root);
         return root;
     }
 
-    private Node insert(int value, Node pointerNode) {
-
+    private @NotNull Node insert(int value, Node pointerNode) {
         if (pointerNode == null) {
-            Node newNode = new Node(value);
-            return newNode;
-        } else if (value < pointerNode.getValue())
-            return insert(value, pointerNode.getLeftChild());
-        else return insert(value, pointerNode.getRightChild());
-//
-//        if(pointerNode.leftChild == null) {
-//            pointerNode.leftChild = new Node(value, null, null);
-//            return pointerNode.leftChild;
-//        }
-//
-//        if(pointerNode.rightChild == null) {
-//            pointerNode.rightChild = new Node(value, null, null);
-//            return pointerNode.rightChild;
-//        }
-//
-//        Node insertedLeftNode = insert(pointerNode.leftChild, value);
-//        if (insertedLeftNode != null) {
-//            return insertedLeftNode;
-//        }
-//
-//        Node insertedRightNode = insert(pointerNode.rightChild, value);
-//        if (insertedRightNode != null) {
-//            return insertedRightNode;
-//        }
+            pointerNode = new Node(value);
+        } else if (value < pointerNode.getValue()) {
+            Node newNode = insert(value, pointerNode.getLeftChild());
+            pointerNode.setLeftChild(newNode);
+        } else {
+            Node newNode = insert(value, pointerNode.getRightChild());
+            pointerNode.setRightChild(newNode);
+        }
+        return pointerNode;
     }
 
 

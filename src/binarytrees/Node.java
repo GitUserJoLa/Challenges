@@ -4,9 +4,10 @@ import java.util.Objects;
 
 class Node {
 
-    private int value;
-    private Node leftChild;
-    private Node rightChild;
+    int value;
+    Node leftChild;
+    Node rightChild;
+//    private Node parent;
 
     Node(int value) {
         this(value, null, null);
@@ -35,26 +36,11 @@ class Node {
         return rightChild;
     }
 
+    void setLeftChild(Node node) {
+        this.leftChild = node;
+    }
 
-//
-//    Node(int value, int leftChildValue, int rightChildValue){
-//        this.value = value;
-//        this.leftChild = new Node(leftChildValue);
-//        this.rightChild = new Node(rightChildValue);
-//    }
-//
-//
-
-//
-//    private void setLeftChild(int value) {
-//        this.leftChild = new Node(value);
-//    }
-//
-
-//
-//    private void setRightChild(int value) {
-//        this.rightChild = new Node(value);
-//    }
-//
-
+    void setRightChild(Node node) {
+        this.rightChild = node;
+    }
 }

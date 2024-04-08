@@ -21,11 +21,11 @@ public class BinaryTree {
             return null;
         }
 
-        if (value == pointerNode.getValue())
+        if (value == pointerNode.value)
             return pointerNode;
-        else if (value < pointerNode.getValue())
-            return binarySearch(value, pointerNode.getLeftChild());
-        else return binarySearch(value, pointerNode.getRightChild());
+        else if (value < pointerNode.value)
+            return binarySearch(value, pointerNode.leftChild);
+        else return binarySearch(value, pointerNode.rightChild);
     }
 
     Node insert(int value) {
@@ -36,11 +36,11 @@ public class BinaryTree {
     private @NotNull Node insert(int value, Node pointerNode) {
         if (pointerNode == null) {
             pointerNode = new Node(value);
-        } else if (value < pointerNode.getValue()) {
-            Node newNode = insert(value, pointerNode.getLeftChild());
+        } else if (value < pointerNode.value) {
+            Node newNode = insert(value, pointerNode.leftChild);
             pointerNode.setLeftChild(newNode);
         } else {
-            Node newNode = insert(value, pointerNode.getRightChild());
+            Node newNode = insert(value, pointerNode.rightChild);
             pointerNode.setRightChild(newNode);
         }
         return pointerNode;

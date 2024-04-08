@@ -19,23 +19,6 @@ class Node {
         this.rightChild = rightChild;
     }
 
-    int getValue() {
-        //throws a NullPointerException
-        //when referencing to child nodes that are null
-        Objects.requireNonNull(this, "'this' must not be null");
-        return this.value;
-    }
-
-    Node getLeftChild() {
-        //if (leftChild == null) System.out.println("Warning: Left Child is null");
-        return leftChild;
-    }
-
-    Node getRightChild() {
-        //if (rightChild == null) System.out.println("Warning: Right Child is null");
-        return rightChild;
-    }
-
     void setLeftChild(Node node) {
         this.leftChild = node;
     }

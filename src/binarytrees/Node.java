@@ -4,16 +4,15 @@ import java.util.Objects;
 
 class Node {
 
-    int value;
+    final int value;
     Node leftChild;
     Node rightChild;
-//    private Node parent;
 
     Node(int value) {
         this(value, null, null);
     }
 
-    Node(int value, Node leftChild, Node rightChild) {
+    private Node(int value, Node leftChild, Node rightChild) {
         this.value = value;
         this.leftChild = leftChild;
         this.rightChild = rightChild;

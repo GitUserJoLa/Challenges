@@ -30,38 +30,51 @@ public class BinaryTree {
     public Node insert(int value) {
 //        unexpected return value
 //        always returns the root
-        Node insertedNode = insert(value, root);
-//        System.out.println("get into insert function: insertedNodeValue: " + insertedNode.value + "; insertedNodeAddress: " + insertedNode);
+        Node rootNode = insert(value, root);
+//        System.out.println("get into insert function: insertedNodeValue: " + rootNode.value + "; insertedNodeAddress: " + rootNode);
         if (root == null)
-            root = insertedNode;
+            root = rootNode;
+
+        Node insertedNode = binarySearch(value);
         return insertedNode;
     }
 
-    private Node insert(int value, Node parentNode) {
-//keeps tree intact, but doesn't return the inserted node
-        if (parentNode == null) {
-            parentNode = new Node(value);
-        } else if (value < parentNode.value) {
-            Node newNode = insert(value, parentNode.leftChild);
-            parentNode.setLeftChild(newNode);
+
+
+    private Node insert(int value, Node rootNode) {
+//      note that this method doesn't return the inserted Node but the root
+        if (rootNode == null) {
+            rootNode = new Node(value);
+        } else if (value < rootNode.value) {
+            Node newNode = insert(value, rootNode.leftChild);
+            rootNode.setLeftChild(newNode);
         } else {
-            Node newNode = insert(value, parentNode.rightChild);
-            parentNode.setRightChild(newNode);
+            Node newNode = insert(value, rootNode.rightChild);
+            rootNode.setRightChild(newNode);
         }
-        return parentNode;
+        return rootNode;
 
 //returns inserted node, but breaks the tree
-//        if (parentNode == null) {
+//        if (rootNode == null) {
 //            return new Node(value);
-//        } else if (value < parentNode.value) {
-//            Node newNode = insert(value, parentNode.leftChild);
-//            parentNode.setLeftChild(newNode);
+//        } else if (value < rootNode.value) {
+//            Node newNode = insert(value, rootNode.leftChild);
+//            rootNode.setLeftChild(newNode);
 //            return newNode;
 //        } else {
-//            Node newNode = insert(value, parentNode.rightChild);
-//            parentNode.setRightChild(newNode);
+//            Node newNode = insert(value, rootNode.rightChild);
+//            rootNode.setRightChild(newNode);
 //            return newNode;
 //        }
+
+
+//        //test older version --- doesn't work either ;___;
+//        if (rootNode == null) {
+//            Node newNode = new Node(value);
+//            return newNode;
+//        } else if (value < rootNode.value)
+//            return insert(value, rootNode.leftChild);
+//        else return insert(value, rootNode.rightChild);
     }
 
     private @Nullable Node searchParent(int value, Node pointerNode) {

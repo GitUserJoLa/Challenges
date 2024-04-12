@@ -14,39 +14,54 @@ public class BinaryTree {
         return binarySearch(value, root);
     }
 
-    private @Nullable Node binarySearch(int value, Node pointerNode) {
-        if (pointerNode == null) {
+    private @Nullable Node binarySearch(int value, Node parentNode) {
+        if (parentNode == null) {
             System.out.println("Could not find Node with value of " + value);
             return null;
         }
 
-        if (value == pointerNode.value)
-            return pointerNode;
-        else if (value < pointerNode.value)
-            return binarySearch(value, pointerNode.leftChild);
-        else return binarySearch(value, pointerNode.rightChild);
+        if (value == parentNode.value)
+            return parentNode;
+        else if (value < parentNode.value)
+            return binarySearch(value, parentNode.leftChild);
+        else return binarySearch(value, parentNode.rightChild);
     }
 
     public Node insert(int value) {
+//        unexpected return value
+//        always returns the root
         Node insertedNode = insert(value, root);
-//        System.out.println("insertedNodeValue: " + insertedNode.value + "; insertedNodeAddress: " + insertedNode);
+//        System.out.println("get into insert function: insertedNodeValue: " + insertedNode.value + "; insertedNodeAddress: " + insertedNode);
         if (root == null)
             root = insertedNode;
         return insertedNode;
     }
 
-    private @NotNull Node insert(int value, Node pointerNode) {
-        if (pointerNode == null) {
-            return new Node(value);
-        } else if (value < pointerNode.value) {
-            Node newNode = insert(value, pointerNode.leftChild);
-            pointerNode.setLeftChild(newNode);
-            return newNode;
+    private Node insert(int value, Node parentNode) {
+//keeps tree intact, but doesn't return the inserted node
+        if (parentNode == null) {
+            parentNode = new Node(value);
+        } else if (value < parentNode.value) {
+            Node newNode = insert(value, parentNode.leftChild);
+            parentNode.setLeftChild(newNode);
         } else {
-            Node newNode = insert(value, pointerNode.rightChild);
-            pointerNode.setRightChild(newNode);
-            return newNode;
+            Node newNode = insert(value, parentNode.rightChild);
+            parentNode.setRightChild(newNode);
         }
+        return parentNode;
+
+//returns inserted node, but breaks the tree
+//        if (parentNode == null) {
+//            return new Node(value);
+//        } else if (value < parentNode.value) {
+//            Node newNode = insert(value, parentNode.leftChild);
+//            parentNode.setLeftChild(newNode);
+//            return newNode;
+//        } else {
+//            Node newNode = insert(value, parentNode.rightChild);
+//            parentNode.setRightChild(newNode);
+//            return newNode;
+//        }
     }
 
     private @Nullable Node searchParent(int value, Node pointerNode) {

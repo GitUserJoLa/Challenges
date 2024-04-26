@@ -1,7 +1,5 @@
 package binarytrees;
 
-import java.util.Objects;
-
 class Node {
 
     final int value;

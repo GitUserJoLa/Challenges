@@ -30,7 +30,7 @@ public class OddOrEvenSolution {
         int num = 0;
         int res = num % 2;
         if (res == 0)
-            System.out.println(num + " is an even number!");
+            System.out.println(num + " is an even number!!");
         else
             System.out.println(num + " is an odd number!");
     }
